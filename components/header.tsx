@@ -5,18 +5,24 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { 
-  Home, 
-  Search, 
-  Building2, 
-  Users, 
-  FileText, 
-  Calculator, 
-  Menu, 
-  X, 
-  Sun, 
+import {
+  Home,
+  Search,
+  Building2,
+  Users,
+  FileText,
+  Calculator,
+  Menu,
+  X,
+  Sun,
   Moon,
-  LogIn
+  LogIn,
+  MoonStarIcon,
+  SunIcon,
+  SunsetIcon,
+  SunDim,
+  MoonIcon,
+  ArrowBigRightDash,
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import {
@@ -43,10 +49,26 @@ const Header = () => {
 
   const navLinks = [
     { name: "Home", href: "/", icon: <Home className="h-4 w-4 mr-2" /> },
-    { name: "Properties", href: "/properties", icon: <Building2 className="h-4 w-4 mr-2" /> },
-    { name: "Agents", href: "/agents", icon: <Users className="h-4 w-4 mr-2" /> },
-    { name: "Blog", href: "/blog", icon: <FileText className="h-4 w-4 mr-2" /> },
-    { name: "Mortgage Calculator", href: "/mortgage-calculator", icon: <Calculator className="h-4 w-4 mr-2" /> },
+    {
+      name: "Properties",
+      href: "/properties",
+      icon: <Building2 className="h-4 w-4 mr-2" />,
+    },
+    {
+      name: "Agents",
+      href: "/agents",
+      icon: <Users className="h-4 w-4 mr-2" />,
+    },
+    {
+      name: "Blog",
+      href: "/blog",
+      icon: <FileText className="h-4 w-4 mr-2" />,
+    },
+    {
+      name: "Mortgage Calculator",
+      href: "/mortgage-calculator",
+      icon: <Calculator className="h-4 w-4 mr-2" />,
+    },
   ];
 
   return (
@@ -85,10 +107,7 @@ const Header = () => {
           <div className="hidden md:flex items-center space-x-4">
             <div className="relative w-64">
               <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
-              <Input
-                placeholder="Search properties..."
-                className="pl-8 pr-4"
-              />
+              <Input placeholder="Search properties..." className="pl-8 pr-4" />
             </div>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -100,14 +119,14 @@ const Header = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 <DropdownMenuItem onClick={() => setTheme("light")}>
-                  Light
+                  <SunIcon />
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setTheme("dark")}>
-                  Dark
+                  <MoonStarIcon />
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("system")}>
+                {/* <DropdownMenuItem onClick={() => setTheme("system")}>
                   System
-                </DropdownMenuItem>
+                </DropdownMenuItem> */}
               </DropdownMenuContent>
             </DropdownMenu>
             <Link href="/auth/login">
@@ -179,21 +198,21 @@ const Header = () => {
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <Button variant="outline" size="sm">
-                      <Sun className="h-[1rem] w-[1rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 mr-2" />
-                      <Moon className="absolute h-[1rem] w-[1rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 mr-2" />
-                      Theme
+                      {/* <Sun className="h-[1rem] w-[1rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 mr-2" /> */}
+                      {/* <Moon className="absolute h-[1rem] w-[1rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 mr-2" /> */}
+                      <SunDim /> <ArrowBigRightDash /> <MoonIcon />
                     </Button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end">
+                  <DropdownMenuContent align="start">
                     <DropdownMenuItem onClick={() => setTheme("light")}>
-                      Light
+                      <SunsetIcon />
                     </DropdownMenuItem>
                     <DropdownMenuItem onClick={() => setTheme("dark")}>
-                      Dark
+                      <MoonStarIcon />
                     </DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => setTheme("system")}>
+                    {/* <DropdownMenuItem onClick={() => setTheme("system")}>
                       System
-                    </DropdownMenuItem>
+                    </DropdownMenuItem> */}
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>

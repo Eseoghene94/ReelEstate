@@ -10,12 +10,11 @@ import {
   MapPin,
   BedDouble,
   Bath,
-  SquareFeet,
+  Ruler,
   Calendar,
   Car,
   Wifi,
   Snowflake,
-  Utensils,
   Trees,
   DollarSign,
   Phone,
@@ -27,7 +26,7 @@ import {
   CheckCircle2,
   User,
   Building,
-  ArrowRight
+  ArrowRight,
 } from "lucide-react";
 import PropertyGallery from "@/components/property-gallery";
 import ContactForm from "@/components/contact-form";
@@ -49,7 +48,8 @@ const properties = [
     yearBuilt: 2020,
     lotSize: "0.5 acres",
     garage: 3,
-    description: "This stunning modern villa offers luxurious living with breathtaking views. The property features an open floor plan with high ceilings, floor-to-ceiling windows, and premium finishes throughout. The gourmet kitchen is equipped with top-of-the-line appliances and a large center island. The primary suite includes a spa-like bathroom and a private balcony. Outside, you'll find a beautifully landscaped yard with a swimming pool, outdoor kitchen, and multiple entertaining areas. Located in a prestigious neighborhood with easy access to shopping, dining, and entertainment.",
+    description:
+      "This stunning modern villa offers luxurious living with breathtaking views. The property features an open floor plan with high ceilings, floor-to-ceiling windows, and premium finishes throughout. The gourmet kitchen is equipped with top-of-the-line appliances and a large center island. The primary suite includes a spa-like bathroom and a private balcony. Outside, you'll find a beautifully landscaped yard with a swimming pool, outdoor kitchen, and multiple entertaining areas. Located in a prestigious neighborhood with easy access to shopping, dining, and entertainment.",
     features: [
       "Swimming Pool",
       "Home Theater",
@@ -60,27 +60,28 @@ const properties = [
       "Walk-in Closets",
       "Gym",
       "Security System",
-      "Central Air Conditioning"
+      "Central Air Conditioning",
     ],
     images: [
       "https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
       "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
       "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
     ],
     agent: {
       name: "Sarah Johnson",
       title: "Luxury Property Specialist",
       phone: "+1 (310) 555-1234",
       email: "sarah.johnson@annyrealtyglobal.com",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+      image:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
     },
     location: {
       lat: 34.0736,
-      lng: -118.4004
-    }
-  }
+      lng: -118.4004,
+    },
+  },
 ];
 
 type Props = {
@@ -89,33 +90,37 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const id = parseInt(params.id);
-  const property = properties.find(p => p.id === id);
-  
+  const property = properties.find((p) => p.id === id);
+
   if (!property) {
     return {
       title: "Property Not Found | Anny-Realty Global",
-      description: "The property you are looking for does not exist."
+      description: "The property you are looking for does not exist.",
     };
   }
-  
+
   return {
     title: `${property.title} | Anny-Realty Global`,
-    description: `${property.title} - ${property.address}. ${property.beds} beds, ${property.baths} baths, ${property.sqft} sqft. Listed at ${formatPrice(property.price)}.`,
+    description: `${property.title} - ${property.address}. ${
+      property.beds
+    } beds, ${property.baths} baths, ${
+      property.sqft
+    } sqft. Listed at ${formatPrice(property.price)}.`,
   };
 }
 
 function formatPrice(price: number) {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    maximumFractionDigits: 0
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "NGN",
+    maximumFractionDigits: 0,
   }).format(price);
 }
 
 export default function PropertyDetailPage({ params }: Props) {
   const id = parseInt(params.id);
-  const property = properties.find(p => p.id === id);
-  
+  const property = properties.find((p) => p.id === id);
+
   if (!property) {
     notFound();
   }
@@ -125,9 +130,13 @@ export default function PropertyDetailPage({ params }: Props) {
       <div className="flex flex-col md:flex-row justify-between items-start mb-6">
         <div>
           <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-            <Link href="/" className="hover:text-primary">Home</Link>
+            <Link href="/" className="hover:text-primary">
+              Home
+            </Link>
             <span>/</span>
-            <Link href="/properties" className="hover:text-primary">Properties</Link>
+            <Link href="/properties" className="hover:text-primary">
+              Properties
+            </Link>
             <span>/</span>
             <span className="text-foreground">{property.title}</span>
           </div>
@@ -154,16 +163,22 @@ export default function PropertyDetailPage({ params }: Props) {
       </div>
 
       <div className="flex items-center gap-2 mb-8">
-        <Badge variant="primary" className="text-sm font-medium">
+        <Badge variant="default" className="text-sm font-medium">
           {property.type}
         </Badge>
         {property.badges.map((badge, index) => (
-          <Badge key={index} variant="secondary" className="text-sm font-medium">
+          <Badge
+            key={index}
+            variant="secondary"
+            className="text-sm font-medium"
+          >
             {badge}
           </Badge>
         ))}
         <div className="ml-auto">
-          <span className="text-3xl font-bold">{formatPrice(property.price)}</span>
+          <span className="text-3xl font-bold">
+            {formatPrice(property.price)}
+          </span>
         </div>
       </div>
 
@@ -179,22 +194,28 @@ export default function PropertyDetailPage({ params }: Props) {
               <TabsTrigger value="location">Location</TabsTrigger>
               <TabsTrigger value="calculator">Mortgage</TabsTrigger>
             </TabsList>
-            
+
             <TabsContent value="details" className="mt-6">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                 <div className="flex flex-col items-center p-4 bg-muted rounded-lg">
                   <BedDouble className="h-6 w-6 mb-2 text-primary" />
-                  <span className="text-sm text-muted-foreground">Bedrooms</span>
+                  <span className="text-sm text-muted-foreground">
+                    Bedrooms
+                  </span>
                   <span className="font-semibold">{property.beds}</span>
                 </div>
                 <div className="flex flex-col items-center p-4 bg-muted rounded-lg">
                   <Bath className="h-6 w-6 mb-2 text-primary" />
-                  <span className="text-sm text-muted-foreground">Bathrooms</span>
+                  <span className="text-sm text-muted-foreground">
+                    Bathrooms
+                  </span>
                   <span className="font-semibold">{property.baths}</span>
                 </div>
                 <div className="flex flex-col items-center p-4 bg-muted rounded-lg">
-                  <SquareFeet className="h-6 w-6 mb-2 text-primary" />
-                  <span className="text-sm text-muted-foreground">Square Feet</span>
+                  <Ruler className="h-6 w-6 mb-2 text-primary" />
+                  <span className="text-sm text-muted-foreground">
+                    Square Feet
+                  </span>
                   <span className="font-semibold">{property.sqft}</span>
                 </div>
                 <div className="flex flex-col items-center p-4 bg-muted rounded-lg">
@@ -203,39 +224,47 @@ export default function PropertyDetailPage({ params }: Props) {
                   <span className="font-semibold">{property.garage} Cars</span>
                 </div>
               </div>
-              
-              <h2 className="text-xl font-semibold mb-4">Property Description</h2>
+
+              <h2 className="text-xl font-semibold mb-4">
+                Property Description
+              </h2>
               <p className="text-muted-foreground mb-6 whitespace-pre-line">
                 {property.description}
               </p>
-              
+
               <h2 className="text-xl font-semibold mb-4">Property Details</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                 <div className="flex items-center">
                   <Calendar className="h-5 w-5 mr-2 text-primary" />
-                  <span className="text-muted-foreground mr-2">Year Built:</span>
+                  <span className="text-muted-foreground mr-2">
+                    Year Built:
+                  </span>
                   <span className="font-medium">{property.yearBuilt}</span>
                 </div>
                 <div className="flex items-center">
-                  <SquareFeet className="h-5 w-5 mr-2 text-primary" />
+                  <Ruler className="h-5 w-5 mr-2 text-primary" />
                   <span className="text-muted-foreground mr-2">Lot Size:</span>
                   <span className="font-medium">{property.lotSize}</span>
                 </div>
                 <div className="flex items-center">
                   <Building className="h-5 w-5 mr-2 text-primary" />
-                  <span className="text-muted-foreground mr-2">Property Type:</span>
+                  <span className="text-muted-foreground mr-2">
+                    Property Type:
+                  </span>
                   <span className="font-medium">Single Family</span>
                 </div>
                 <div className="flex items-center">
                   <DollarSign className="h-5 w-5 mr-2 text-primary" />
-                  <span className="text-muted-foreground mr-2">Price per Sqft:</span>
+                  <span className="text-muted-foreground mr-2">
+                    Price per Sqft:
+                  </span>
                   <span className="font-medium">
                     {formatPrice(Math.round(property.price / property.sqft))}
                   </span>
                 </div>
               </div>
             </TabsContent>
-            
+
             <TabsContent value="features" className="mt-6">
               <h2 className="text-xl font-semibold mb-4">Property Features</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
@@ -246,14 +275,16 @@ export default function PropertyDetailPage({ params }: Props) {
                   </div>
                 ))}
               </div>
-              
+
               <h2 className="text-xl font-semibold mb-4">Amenities</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <Card>
                   <CardContent className="pt-6">
                     <div className="flex flex-col items-center text-center">
                       <Wifi className="h-10 w-10 mb-4 text-primary" />
-                      <h3 className="font-semibold mb-2">High-Speed Internet</h3>
+                      <h3 className="font-semibold mb-2">
+                        High-Speed Internet
+                      </h3>
                       <p className="text-sm text-muted-foreground">
                         Fiber optic connection ready for all your needs
                       </p>
@@ -284,12 +315,15 @@ export default function PropertyDetailPage({ params }: Props) {
                 </Card>
               </div>
             </TabsContent>
-            
+
             <TabsContent value="location" className="mt-6">
               <h2 className="text-xl font-semibold mb-4">Location</h2>
               <div className="aspect-[16/9] relative mb-6 bg-muted rounded-lg overflow-hidden">
                 <iframe
-                  src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${property.address.replace(/\s+/g, '+')}`}
+                  src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${property.address.replace(
+                    /\s+/g,
+                    "+"
+                  )}`}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -299,12 +333,16 @@ export default function PropertyDetailPage({ params }: Props) {
                   className="absolute inset-0"
                 ></iframe>
               </div>
-              
+
               <h3 className="text-lg font-semibold mb-3">Neighborhood</h3>
               <p className="text-muted-foreground mb-6">
-                This property is located in a prestigious neighborhood with excellent schools, parks, and amenities. The area offers a perfect blend of suburban tranquility and urban convenience, with shopping centers, restaurants, and entertainment options just minutes away.
+                This property is located in a prestigious neighborhood with
+                excellent schools, parks, and amenities. The area offers a
+                perfect blend of suburban tranquility and urban convenience,
+                with shopping centers, restaurants, and entertainment options
+                just minutes away.
               </p>
-              
+
               <h3 className="text-lg font-semibold mb-3">Nearby Amenities</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
@@ -325,18 +363,21 @@ export default function PropertyDetailPage({ params }: Props) {
                 </div>
               </div>
             </TabsContent>
-            
+
             <TabsContent value="calculator" className="mt-6">
               <MortgageCalculator propertyPrice={property.price} />
             </TabsContent>
           </Tabs>
-          
+
           <div className="mt-12">
             <h2 className="text-xl font-semibold mb-6">Schedule a Viewing</h2>
-            <ContactForm propertyId={property.id} propertyTitle={property.title} />
+            <ContactForm
+              propertyId={property.id}
+              propertyTitle={property.title}
+            />
           </div>
         </div>
-        
+
         <div className="lg:col-span-1">
           <Card className="mb-6">
             <CardContent className="pt-6">
@@ -351,12 +392,14 @@ export default function PropertyDetailPage({ params }: Props) {
                 </div>
                 <div>
                   <h3 className="font-semibold">{property.agent.name}</h3>
-                  <p className="text-sm text-muted-foreground">{property.agent.title}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {property.agent.title}
+                  </p>
                 </div>
               </div>
-              
+
               <Separator className="my-4" />
-              
+
               <div className="space-y-3">
                 <div className="flex items-center">
                   <Phone className="h-5 w-5 mr-3 text-primary" />
@@ -367,18 +410,20 @@ export default function PropertyDetailPage({ params }: Props) {
                   <span className="text-sm">{property.agent.email}</span>
                 </div>
               </div>
-              
+
               <div className="mt-6 space-y-3">
                 <Button className="w-full">Contact Agent</Button>
-                <Button variant="outline" className="w-full">View Profile</Button>
+                <Button variant="outline" className="w-full">
+                  View Profile
+                </Button>
               </div>
             </CardContent>
           </Card>
-          
+
           <Card>
             <CardContent className="pt-6">
               <h3 className="font-semibold text-lg mb-4">Property Status</h3>
-              
+
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
                   <div className="flex items-center">
@@ -387,7 +432,7 @@ export default function PropertyDetailPage({ params }: Props) {
                   </div>
                   <span>2 weeks ago</span>
                 </div>
-                
+
                 <div className="flex justify-between items-center">
                   <div className="flex items-center">
                     <User className="h-5 w-5 mr-2 text-primary" />
@@ -395,12 +440,15 @@ export default function PropertyDetailPage({ params }: Props) {
                   </div>
                   <span>1,245</span>
                 </div>
-                
+
                 <Separator className="my-2" />
-                
+
                 <div>
                   <h4 className="font-medium mb-2">Similar Properties</h4>
-                  <Link href="/properties" className="text-primary flex items-center text-sm">
+                  <Link
+                    href="/properties"
+                    className="text-primary flex items-center text-sm"
+                  >
                     View all similar properties
                     <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>
