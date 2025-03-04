@@ -21,7 +21,7 @@ const featuredProperties = [
   {
     id: 1,
     title: "Modern Luxury Villa",
-    address: "123 Luxury Lane, Beverly Hills, CA",
+    address: "2 Maitama, Abuja, Nigeria",
     price: 2500000,
     type: "For Sale",
     badges: ["Featured", "New"],
@@ -34,7 +34,7 @@ const featuredProperties = [
   {
     id: 2,
     title: "Downtown Penthouse",
-    address: "456 Skyline Ave, New York, NY",
+    address: "2 Maitama, Abuja, Nigeria",
     price: 1800000,
     type: "For Sale",
     badges: ["Premium"],
@@ -47,7 +47,7 @@ const featuredProperties = [
   {
     id: 3,
     title: "Waterfront Estate",
-    address: "789 Coastal Road, Miami, FL",
+    address: "5 Chevron Drive, Lagos, Nigeria",
     price: 3200000,
     type: "For Sale",
     badges: ["Exclusive"],
@@ -60,7 +60,7 @@ const featuredProperties = [
   {
     id: 4,
     title: "Urban Loft Apartment",
-    address: "101 Artisan St, Chicago, IL",
+    address: "5 Chevron Drive, Lagos, Nigeria",
     price: 850000,
     type: "For Sale",
     badges: ["Hot Deal"],
@@ -73,7 +73,7 @@ const featuredProperties = [
   {
     id: 5,
     title: "Mountain View Retreat",
-    address: "555 Alpine Way, Aspen, CO",
+    address: "5 Chevron Drive, Lagos, Nigeria",
     price: 1950000,
     type: "For Sale",
     badges: ["New"],
@@ -86,7 +86,7 @@ const featuredProperties = [
   {
     id: 6,
     title: "Beachfront Condo",
-    address: "222 Ocean Drive, San Diego, CA",
+    address: "5 Chevron Drive, Lagos, Nigeria",
     price: 1200000,
     type: "For Sale",
     badges: ["Premium"],
@@ -127,7 +127,7 @@ const FeaturedProperties = () => {
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat("en-US", {
       style: "currency",
-      currency: "USD",
+      currency: "NGN",
       maximumFractionDigits: 0,
     }).format(price);
   };
@@ -157,7 +157,7 @@ const FeaturedProperties = () => {
                     className={`font-medium ${
                       badge === "Hot Deal"
                         ? "bg-red-500 text-white"
-                        : "bg-gray-200 text-black"
+                        : "bg-green-500 text-black"
                     }`}
                   >
                     {badge}
@@ -166,7 +166,7 @@ const FeaturedProperties = () => {
               </div>
               <div className="absolute top-4 right-4">
                 <Button
-                  className={`rounded-full bg-background/80 backdrop-blur-sm hover:bg-background ${
+                  className={`rounded-full bg-yellow-500 backdrop-blur-sm hover:bg-background ${
                     favorites.includes(property.id) ? "text-destructive" : ""
                   }`}
                   onClick={() => toggleFavorite(property.id)}
@@ -182,7 +182,7 @@ const FeaturedProperties = () => {
                 <Badge className="font-medium text-sm">{property.type}</Badge>
               </div>
               <div className="absolute bottom-4 right-4">
-                <Badge className="font-bold text-lg bg-background/80 backdrop-blur-sm">
+                <Badge className="font-bold text-lg bg-blue-700 backdrop-blur-sm">
                   {formatPrice(property.price)}
                 </Badge>
               </div>
