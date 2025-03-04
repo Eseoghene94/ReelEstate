@@ -1,5 +1,14 @@
 import Link from "next/link";
-import { Building2, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import {
+  Building2,
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -16,25 +25,42 @@ const Footer = () => {
               <span className="font-bold text-lg">Anny-Realty Global</span>
             </div>
             <p className="text-muted-foreground mb-4">
-              Your trusted partner in finding the perfect property. We provide premium real estate services worldwide.
+              Your trusted partner in finding the perfect property. We provide
+              premium real estate services nationwide.
             </p>
             <div className="flex space-x-4">
-              <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+              <Link
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button variant="ghost" size="icon" aria-label="Facebook">
                   <Facebook className="h-5 w-5" />
                 </Button>
               </Link>
-              <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+              <Link
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button variant="ghost" size="icon" aria-label="Twitter">
                   <Twitter className="h-5 w-5" />
                 </Button>
               </Link>
-              <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+              <Link
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button variant="ghost" size="icon" aria-label="Instagram">
                   <Instagram className="h-5 w-5" />
                 </Button>
               </Link>
-              <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+              <Link
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button variant="ghost" size="icon" aria-label="LinkedIn">
                   <Linkedin className="h-5 w-5" />
                 </Button>
@@ -46,32 +72,50 @@ const Footer = () => {
             <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/properties" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  href="/properties"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   Properties
                 </Link>
               </li>
               <li>
-                <Link href="/agents" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  href="/agents"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   Our Agents
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  href="/blog"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   Blog & News
                 </Link>
               </li>
               <li>
-                <Link href="/mortgage-calculator" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  href="/mortgage-calculator"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   Mortgage Calculator
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  href="/about"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  href="/contact"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   Contact Us
                 </Link>
               </li>
@@ -84,16 +128,20 @@ const Footer = () => {
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 mr-2 mt-0.5 text-primary" />
                 <span className="text-muted-foreground">
-                  123 Real Estate Avenue, New York, NY 10001, USA
+                  2 Adoga Street, Ejigbo, Lagos, NIGERIA
                 </span>
               </li>
               <li className="flex items-center">
                 <Phone className="h-5 w-5 mr-2 text-primary" />
-                <span className="text-muted-foreground">+1 (555) 123-4567</span>
+                <span className="text-muted-foreground">
+                  +234 (810) 765-1132
+                </span>
               </li>
               <li className="flex items-center">
                 <Mail className="h-5 w-5 mr-2 text-primary" />
-                <span className="text-muted-foreground">info@annyrealtyglobal.com</span>
+                <span className="text-muted-foreground">
+                  info@annyrealtyglobal.com
+                </span>
               </li>
             </ul>
           </div>
@@ -101,7 +149,8 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold text-lg mb-4">Newsletter</h3>
             <p className="text-muted-foreground mb-4">
-              Subscribe to our newsletter for the latest property updates and market insights.
+              Subscribe to our newsletter for the latest property updates and
+              market insights.
             </p>
             <div className="space-y-2">
               <Input placeholder="Your email address" type="email" />
@@ -115,13 +164,22 @@ const Footer = () => {
             © {currentYear} Anny-Realty Global. All rights reserved.
           </p>
           <div className="flex space-x-4 text-sm text-muted-foreground">
-            <Link href="/privacy-policy" className="hover:text-primary transition-colors">
+            <Link
+              href="/privacy-policy"
+              className="hover:text-primary transition-colors"
+            >
               Privacy Policy
             </Link>
-            <Link href="/terms-of-service" className="hover:text-primary transition-colors">
+            <Link
+              href="/terms-of-service"
+              className="hover:text-primary transition-colors"
+            >
               Terms of Service
             </Link>
-            <Link href="/sitemap" className="hover:text-primary transition-colors">
+            <Link
+              href="/sitemap"
+              className="hover:text-primary transition-colors"
+            >
               Sitemap
             </Link>
           </div>
