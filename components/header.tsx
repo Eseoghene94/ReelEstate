@@ -66,7 +66,7 @@ const Header = () => {
     },
     {
       name: "Mortgage Calculator",
-      href: "/mortgage-calculator",
+      href: "/mortgageCalculator",
       icon: <Calculator className="h-4 w-4 mr-2" />,
     },
   ];
