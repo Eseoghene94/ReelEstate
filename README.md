@@ -2,7 +2,7 @@
 
 Welcome to **Anny's Real Estate**, a modern and elegant platform designed to showcase and manage real estate listings. Built with **Next.js**, this application offers a seamless experience for browsing properties, connecting buyers with sellers, and exploring the best real estate opportunities.
 
-![Anny's Real Estate Screenshot](/images/screenshot.jpeg)
+![Anny's Real Estate Screenshot](/public/images/screenshot.jpeg)
 
 ---
 
