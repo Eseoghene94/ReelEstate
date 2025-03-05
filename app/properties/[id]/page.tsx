@@ -326,11 +326,10 @@ export default function PropertyDetailPage({ params }: Props) {
                   )}`}
                   width="100%"
                   height="100%"
-                  style={{ border: 0 }}
+                  className="iframe-style"
                   allowFullScreen
-                  loading="lazy"
+                  title="Property Location"
                   referrerPolicy="no-referrer-when-downgrade"
-                  className="absolute inset-0"
                 ></iframe>
               </div>
 
