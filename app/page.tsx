@@ -135,9 +135,11 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="flex justify-center lg:justify-end">
+            <div className="flex flex-col lg:justify-end">
               <div className="bg-card text-card-foreground p-6 rounded-lg shadow-lg max-w-md">
-                <h3 className="font-semibold text-xl mb-4">Our Achievements</h3>
+                <h3 className="font-semibold text-center text-xl mb-4">
+                  Our Achievements
+                </h3>
                 <div className="space-y-4">
                   {[
                     { label: "Properties Sold", value: "1,500+" },
@@ -186,7 +188,7 @@ export default function Home() {
         </div>
       </section>
       {/* NEWSLETTER */}
-      <section className="py-16 bg-gradient-to-br from-blue-500 via-blue-700 to-blue-950">
+      <section className="py-16 bg-gradient-to-br from-blue-900 via-blue-800 to-gray-900">
         <div className="container mx-auto px-4">
           <NewsletterSignup />
         </div>
