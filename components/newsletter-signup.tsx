@@ -150,12 +150,12 @@ const NewsletterSignup = React.memo(function NewsletterSignup() {
   return (
     <div className="max-w-3xl mx-auto text-center">
       <div className="inline-flex items-center justify-center p-3 mb-6 rounded-full bg-primary/10">
-        <Mail className="h-6 w-6 text-primary" />
+        <Mail className="h-6 w-6 text-yellow-400" />
       </div>
       <h2 className="text-3xl font-bold mb-4">
         Stay Updated with Market Trends
       </h2>
-      <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
+      <p className="text-white mb-8 max-w-xl mx-auto">
         Subscribe to our newsletter for the latest property listings, market
         insights, and exclusive offers. Join our community of homeowners and
         investors.
@@ -163,11 +163,11 @@ const NewsletterSignup = React.memo(function NewsletterSignup() {
 
       {isSubscribed ? (
         <div className="flex flex-col items-center justify-center space-y-4">
-          <div className="h-12 w-12 rounded-full bg-green-100 flex items-center justify-center">
-            <CheckCircle2 className="h-6 w-6 text-green-600" />
+          <div className="h-12 w-12 rounded-full bg-green-300 flex items-center justify-center">
+            <CheckCircle2 className="h-6 w-6 text-green-800" />
           </div>
           <h3 className="text-xl font-semibold">Thank You for Subscribing!</h3>
-          <p className="text-muted-foreground">
+          <p className="text-white">
             You&apos;ll start receiving our newsletter with the latest updates
             and exclusive offers.
           </p>
@@ -197,7 +197,7 @@ const NewsletterSignup = React.memo(function NewsletterSignup() {
         </form>
       )}
 
-      <p className="text-xs text-muted-foreground mt-4">
+      <p className="text-xs text-white mt-4">
         By subscribing, you agree to our{" "}
         <a href="/privacy-policy" className="underline hover:text-primary">
           Privacy Policy

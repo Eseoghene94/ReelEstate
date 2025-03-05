@@ -128,7 +128,7 @@ const Footer = () => {
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 mr-2 mt-0.5 text-primary" />
                 <span className="text-muted-foreground">
-                  2 Adoga Street, Ejigbo, Lagos, NIGERIA
+                  2 Glover Road, Ikoyi , Lagos, NIGERIA
                 </span>
               </li>
               <li className="flex items-center">

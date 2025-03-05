@@ -173,7 +173,7 @@ export default function Home() {
         </div>
       </section>
       {/* Testimonials */}
-      <section className="py-16 bg-gradient-to-br from-yellow-100 via-yellow-500 to-yellow-800">
+      <section className="py-16 bg-gradient-to-br from-yellow-500 via-yellow-700 to-yellow-950">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">What Our Clients Say</h2>
@@ -186,7 +186,7 @@ export default function Home() {
         </div>
       </section>
       {/* NEWSLETTER */}
-      <section className="py-16 bg-gradient-to-br from-blue-100 via-blue-00 to-blue-800">
+      <section className="py-16 bg-gradient-to-br from-blue-500 via-blue-700 to-blue-950">
         <div className="container mx-auto px-4">
           <NewsletterSignup />
         </div>
