@@ -183,6 +183,14 @@ const Footer = () => {
               Sitemap
             </Link>
           </div>
+          <div className="flex space-x-4 text-sm text-muted-foreground">
+            <Link
+              href="https://github.com/Eseoghene94"
+              className="text-yellow-600 hover:text-blue-700 transition-colors"
+            >
+              Developed with ❤️ by CODEwithESE
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
