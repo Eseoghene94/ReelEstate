@@ -38,7 +38,7 @@ export default function Home() {
               Find Your Dream Property With Anny-Realty Global
             </h1>
             <p className="text-xl text-white/90 mb-8">
-              Discover premium properties worldwide with personalized solutions
+              Discover premium properties nationwide with personalized solutions
               for buyers, sellers, and investors.
             </p>
 
