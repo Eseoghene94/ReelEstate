@@ -2,7 +2,7 @@
 
 Welcome to **Anny's Real Estate**, a modern and elegant platform designed to showcase and manage real estate listings. Built with **Next.js**, this application offers a seamless experience for browsing properties, connecting buyers with sellers, and exploring the best real estate opportunities.
 
-![Anny's Real Estate Screenshot](/public/images/screenshot.jpeg)
+![Anny's Real Estate Screenshot](/images/screenshot.jpeg)
 
 ---
 
@@ -43,25 +43,30 @@ Follow these steps to set up the project locally on your machine.
 
 1. **Clone the repository**:
 
-   ```bash
+   ````bash
    git clone https://github.com/your-username/annys-real-estate.git
    cd annys-real-estate
-   ```
+   ```env
+
+   ````
 
 2. **Install dependencies**:
 
-   ```bash
+   ````bash
    npm install
    # or
    yarn install
    # or
    pnpm install
-   ```
+   ```bash
+
+   ````
 
 3. **Set up environment variables**:
 
    - Create a `.env.local` file in the root directory.
    - Add the required environment variables (e.g., database connection strings, API keys):
+
      ```env
      DATABASE_URL=your_database_url
      NEXT_PUBLIC_MAP_API_KEY=your_map_api_key
@@ -110,7 +115,7 @@ annys-real-estate/
 
 This project is optimized for deployment on **Vercel**, the platform created by the makers of Next.js.
 
-### Steps to Deploy:
+### Steps to Deploy
 
 1. **Push your code to GitHub**:
 
@@ -165,9 +170,9 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 If you have any questions or feedback, feel free to reach out:
 
-- **Email**: codewithese@example.com
+- **Email**: <codewithese@example.com>
 - **GitHub**: [Eseoghene94](https://github.com/eseoghene94)
-- **Portfolio**: [your-portfolio-link](#)
+- **Portfolio**: [your-portfolio-link](https://your-portfolio-link.com)
 
 ---
 
