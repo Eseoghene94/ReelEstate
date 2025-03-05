@@ -106,21 +106,40 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     } beds, ${property.baths} baths, ${
       property.sqft
     } sqft. Listed at ${formatPrice(property.price)}.`,
+    openGraph: {
+      title: `${property.title} | Anny-Realty Global`,
+      description: `${property.title} - ${property.address}. ${
+        property.beds
+      } beds, ${property.baths} baths, ${
+        property.sqft
+      } sqft. Listed at ${formatPrice(property.price)}.`,
+      images: [
+        {
+          url: property.images[0],
+          width: 1200,
+          height: 800,
+          alt: property.title,
+        },
+      ],
+    },
   };
 }
 
-function formatPrice(price: number) {
+function formatPrice(price: number, currency: string = "NGN") {
   return new Intl.NumberFormat("en-US", {
     style: "currency",
-    currency: "NGN",
+    currency,
     maximumFractionDigits: 0,
   }).format(price);
 }
 
 export default function PropertyDetailPage({ params }: Props) {
   const id = parseInt(params.id);
-  const property = properties.find((p) => p.id === id);
+  if (isNaN(id)) {
+    notFound();
+  }
 
+  const property = properties.find((p) => p.id === id);
   if (!property) {
     notFound();
   }
